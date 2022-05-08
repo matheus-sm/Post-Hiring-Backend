@@ -1,14 +1,14 @@
-import express, {Request, Response} from 'express'
+import routes from './_config/routes';
+import cors from 'cors';
+import express from 'express'
+
 const app = express()
-const port = 3000
-app.get("/home",async(req: Request, res: Response):Promise<any>=>{
-    var mensagem = {
-        "Nome": "Matheus"
-    }
-    res.send(mensagem)
-})
+
+console.log("App rodando")
+
+app.use(cors())
+app.use(express.json());
+app.use(routes);
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.listen(3000);
