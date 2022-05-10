@@ -14,5 +14,19 @@ async function listAllUser(){
     }
 }
 
+async function insertUsuario(value3: string, value4: string){
 
-module.exports = {listAllUser}
+    const sql = `insert `
+    const values = [value3, value4]
+
+    try {
+        const res = await usuarioConnection.client.query(sql, values);
+        return res.rows;
+    } catch(err){
+        console.error(err);
+    }
+
+}
+
+
+module.exports = {listAllUser, insertUsuario}
