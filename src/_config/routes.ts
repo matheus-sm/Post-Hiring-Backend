@@ -6,15 +6,34 @@ import loginController from '../features/controller/loginController';
 import sectorController from '../features/controller/sectorController';
 import userController from '../features/controller/userController';
 
-//Autenticação
+//Listagem de usuário para autenticação
 //Verificação para autenticação
 routes.get('/api/login/listAlllogin', loginController.listAlllogin)
 
-//listagem de usuário
+//Usuário
+//listagem de usuário 
 routes.get('/api/user/listAllUser', userController.listAllUser)
 
+//Registro de Usuário adm
+routes.post('/api/user/insertUser/userAdm', userController.insertUsuarioAdm)
+
+//Registro de Usuário adm
+routes.post('/api/user/insertUser/userAssociate', userController.insertUsuarioAssociate)
+
+//Edição de Usuário adm
+routes.put('/api/user/updateUser/userAssociate/:user_associate_id', userController.updateUsuarioAssociate)
+//Documentos
 //listagem de documentos
 routes.get('/api/documents/listAllDocuments', documentsController.listAllDocuments)
+
+//Registro de documentos
+routes.post('/api/documents/insertDocuments', documentsController.insertDocuments)
+
+//Delete de documentos
+routes.delete('/api/documents/deleteDocuments/:document_id', documentsController.deleteDocuments)
+
+//Edição de documentos
+routes.put('/api/documents/updateDocuments/:document_id', documentsController.updateDocuments)
 
 //Setores
 //Listagem de setores
