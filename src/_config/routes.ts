@@ -6,9 +6,8 @@ import loginController from '../features/controller/loginController';
 import sectorController from '../features/controller/sectorController';
 import userController from '../features/controller/userController';
 
-//Listagem de usuário para autenticação
 //Verificação para autenticação
-routes.get('/api/login/listAlllogin', loginController.listAlllogin)
+routes.post('/api/login/Auth', loginController.Auth)
 
 //Usuário
 //listagem de usuário 

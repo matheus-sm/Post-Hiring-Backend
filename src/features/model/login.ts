@@ -1,12 +1,14 @@
 const loginConnection = require('../../database/connection')
 
-async function listAlllogin(){
+async function Auth(nickname: string, password: string){
 
-    const sql = `select user_name, password from public.user`
+    const sql = `select user_id, user_name, sector_id, is_supervisor, nickname, email from public.user where nickname = $1 and password = $2 `
+
+    const values = [nickname, password]
 
     try {
 
-        const res = await loginConnection.client.query(sql);
+        const res = await loginConnection.client.query(sql,values);
         return res.rows;
 
     } catch (err) {
@@ -15,4 +17,5 @@ async function listAlllogin(){
 }
 
 
-module.exports = {listAlllogin}
+module.exports = {Auth}
+
