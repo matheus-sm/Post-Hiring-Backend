@@ -10,8 +10,6 @@ export default {
             password
         } = request.body.data
 
-        console.log(nickname)
-
         try{
             const [login] = await loginModel.Auth(nickname,password)
             console.log(login)

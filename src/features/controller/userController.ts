@@ -20,6 +20,8 @@ export default {
             password
         } = request.body
 
+        console.log(request.body)
+
         try{
             const [users] =  await userModel.insertUsuario(user_name, birth_date, sector_id, is_supervisor, nickname, email, password)
             const userAdm =  await userModel.insertUsuarioAdm(users.user_id)

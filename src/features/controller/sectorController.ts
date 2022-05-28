@@ -5,30 +5,33 @@ const sectorModel = require('../model/sector')
 export default {
     async listAllSector(request: Request, response: Response){
 
-        const sector = await sectorModel.listAllSector()
-        response.json(sector)
+        const sector: [] = await sectorModel.listAllSector()
+        response.send(sector)
     },
 
     async insertSector(request: Request, response: Response){
         const{
             sector_name,
             description
-        } = request.body
-
+        } = request.body.data
+        console.log(request.body.data);
         try{
             const sector =  await sectorModel.insertSector(sector_name, description)
 
-            const retorno = {
+            const sector_response = {
+                success: true,
                 status: 200,
-                mensagem: "Cadastro realizado com sucesso",
+                message: "Cadastro realizado com sucesso",
                 sector: {sector}
             }
-            response.json(retorno)
+            response.json(sector_response)
         } catch(err){
-            const msg = {
+            const sector_response = {
+                
+                success: false,
                 message: "Erro ao cadastrar"
             }
-            response.json(msg)
+            response.json(sector_response)
         }
     },
 

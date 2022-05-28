@@ -2,7 +2,7 @@ const documentsConnection = require('../../database/connection')
 
 async function listAllDocuments(){
 
-    const sql = `select * from public.documents`
+    const sql = `select * from documents as doc left join sector as sec on sec.sector_id = doc.sector_id`
 
     try {
 
