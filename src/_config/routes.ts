@@ -7,44 +7,46 @@ import sectorController from '../features/controller/sectorController';
 import userController from '../features/controller/userController';
 
 //Verificação para autenticação
-routes.post('/api/login/Auth', loginController.Auth)
+routes.post('/api/login/Auth', loginController.Auth) 
 
-//Usuário
+
 //listagem de usuário 
-routes.get('/api/user/listAllUser', userController.listAllUser)
+routes.get('/api/user/listAllUser', userController.listAllUser) 
+
+//Registro de Usuário adm 
+routes.post('/api/user/insertUser/userAdm', userController.insertUsuarioAdm) 
 
 //Registro de Usuário adm
-routes.post('/api/user/insertUser/userAdm', userController.insertUsuarioAdm)
-
-//Registro de Usuário adm
-routes.post('/api/user/insertUser/userAssociate', userController.insertUsuarioAssociate)
+routes.post('/api/user/insertUser/userAssociate', userController.insertUsuarioAssociate) 
 
 //Edição de Usuário adm
-routes.put('/api/user/updateUser/userAssociate/:user_associate_id', userController.updateUsuarioAssociate)
-//Documentos
+routes.put('/api/user/updateUser/userAssociate/:user_associate_id', userController.updateUsuarioAssociate) 
+
+
 //listagem de documentos
-routes.get('/api/documents/listAllDocuments', documentsController.listAllDocuments)
+routes.get('/api/documents/listAllDocuments', documentsController.listAllDocuments) 
 
 //Registro de documentos
-routes.post('/api/documents/insertDocuments', documentsController.insertDocuments)
+routes.post('/api/documents/insertDocuments', documentsController.insertDocuments) 
 
 //Delete de documentos
-routes.delete('/api/documents/deleteDocuments/:document_id', documentsController.deleteDocuments)
+routes.delete('/api/documents/deleteDocuments/:document_id', documentsController.deleteDocuments) 
 
 //Edição de documentos
-routes.put('/api/documents/updateDocuments/:document_id', documentsController.updateDocuments)
+routes.put('/api/documents/updateDocuments/:document_id', documentsController.updateDocuments) 
 
-//Setores
+
+
 //Listagem de setores
 routes.get('/api/sector/listAllSector', sectorController.listAllSector)
 
 //Registro de setores
-routes.post('/api/sector/insertSector', sectorController.insertSector)
+routes.post('/api/sector/insertSector', sectorController.insertSector) 
 
 //Delete de setores
-routes.delete('/api/sector/deleteSector/:sector_id', sectorController.deleteSector)
+routes.delete('/api/sector/deleteSector/:sector_id', sectorController.deleteSector) 
 
 //Edição de setores
-routes.put('/api/sector/updateSector/:sector_id', sectorController.updateSector)
+routes.put('/api/sector/updateSector/:sector_id', sectorController.updateSector) 
 
 export default routes;
